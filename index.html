@@ -3,118 +3,501 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Signatures - Desiree Canlas</title>
+    <title>Email Signatures — Desiree Canlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --navy: #1a2332;
+            --navy-light: #2a3648;
+            --gold: #d4a574;
+            --gold-light: #e8b989;
+            --cream: #faf8f5;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        .background-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg,
+                var(--cream) 0%,
+                #f5f0e8 25%,
+                #e8dfd0 50%,
+                var(--cream) 75%,
+                #f5f0e8 100%
+            );
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .decorative-circle {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .circle-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--gold);
+            top: -200px;
+            right: -200px;
+            animation: float 25s ease-in-out infinite;
+        }
+
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--navy);
+            bottom: -100px;
+            left: -100px;
+            animation: float 20s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, -30px) rotate(5deg); }
+        }
+
         .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 120px 20px 80px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--navy);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .hero-title strong {
+            font-weight: 700;
+            display: block;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .signatures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 60px;
+            padding: 40px 0 120px;
             max-width: 1200px;
             margin: 0 auto;
         }
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 50px;
-        }
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .header p {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-        .signatures {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
+
         .signature-card {
-            background: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow:
+                0 10px 40px rgba(26, 35, 50, 0.08),
+                0 0 1px rgba(26, 35, 50, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            animation: cardFadeIn 0.8s ease-out forwards;
         }
-        .signature-title {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #1a1a1a;
+
+        .signature-card:nth-child(1) {
+            animation-delay: 0.8s;
+        }
+
+        .signature-card:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        @keyframes cardFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .signature-card:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 20px 60px rgba(26, 35, 50, 0.12),
+                0 0 1px rgba(26, 35, 50, 0.1);
+        }
+
+        .card-header {
+            border-bottom: 1px solid var(--gray-light);
+            padding-bottom: 28px;
+            margin-bottom: 36px;
+        }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .card-description {
+            font-size: 0.9375rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .signature-preview {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            border: 1px solid var(--gray-light);
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .signature-preview:hover {
+            border-color: var(--gold-light);
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.1);
+        }
+
+        .copy-button {
+            width: 100%;
+            padding: 18px 32px;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .copy-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .copy-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .copy-button:hover {
+            background: var(--navy-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(26, 35, 50, 0.2);
+        }
+
+        .copy-button:active {
+            transform: translateY(0);
+        }
+
+        .copy-button.copied {
+            background: #10b981;
+        }
+
+        .button-text {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .button-icon {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .copy-button:hover .button-icon {
+            transform: scale(1.1);
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 60px;
+            margin: 80px auto 120px;
+            max-width: 900px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px rgba(26, 35, 50, 0.06);
+        }
+
+        .instructions-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 32px;
+            text-align: center;
+            letter-spacing: -0.01em;
+        }
+
+        .steps {
+            display: grid;
+            gap: 24px;
+        }
+
+        .step {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--gray-light);
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            border-color: var(--gold-light);
+            transform: translateX(8px);
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .step-content h3 {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy);
             margin-bottom: 8px;
         }
-        .signature-desc {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
+
+        .step-content p {
+            font-size: 0.9375rem;
+            color: var(--gray);
+            line-height: 1.7;
         }
-        .signature-preview {
-            background: #fafafa;
+
+        .email-clients {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .client-link {
+            padding: 12px 24px;
+            background: var(--white);
+            color: var(--navy);
+            text-decoration: none;
             border-radius: 8px;
-            padding: 30px;
-            border: 1px solid #e8e8e8;
+            border: 1px solid var(--gray-light);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
-        .copy-button {
-            display: block;
-            width: 100%;
-            margin-top: 20px;
-            padding: 12px;
-            background: #3b5998;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.95em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
+
+        .client-link:hover {
+            background: var(--navy);
+            color: var(--white);
+            border-color: var(--navy);
+            transform: translateY(-2px);
         }
-        .copy-button:hover {
-            background: #2d4373;
-        }
-        .copy-button:active {
-            transform: scale(0.98);
-        }
+
         .footer {
             text-align: center;
-            color: white;
-            margin-top: 40px;
-            opacity: 0.9;
+            padding: 60px 20px;
+            color: var(--gray);
+            font-size: 0.875rem;
         }
+
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 20px;
+        }
+
         @media (max-width: 768px) {
-            .signatures {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 80px 20px 60px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .signatures-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
-            .header h1 {
-                font-size: 2em;
+
+            .signature-card {
+                padding: 32px;
             }
+
+            .signature-preview {
+                padding: 24px;
+            }
+
+            .instructions {
+                padding: 40px 28px;
+            }
+
+            .step {
+                flex-direction: column;
+            }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(26, 35, 50, 0.3);
+            transform: translateY(120px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            font-size: 0.9375rem;
+            font-weight: 500;
+        }
+
+        .toast.show {
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>✨ Email Signatures</h1>
-            <p>Professional signatures for Desiree Canlas</p>
-        </div>
+    <div class="background-gradient"></div>
+    <div class="decorative-circle circle-1"></div>
+    <div class="decorative-circle circle-2"></div>
 
-        <div class="signatures">
-            <!-- Modern Style -->
+    <div class="container">
+        <section class="hero">
+            <div class="hero-subtitle">Professional Email Signatures</div>
+            <h1 class="hero-title">
+                Elegant Signatures
+                <strong>for Desiree Canlas</strong>
+            </h1>
+            <p class="hero-description">
+                Two meticulously crafted email signature designs, ready to elevate your professional communication.
+            </p>
+        </section>
+
+        <div class="signatures-grid">
             <div class="signature-card">
-                <div class="signature-title">Modern Style</div>
-                <div class="signature-desc">Logo inline • Gradient accent • Clean layout</div>
+                <div class="card-header">
+                    <h2 class="card-title">Modern Style</h2>
+                    <p class="card-description">Logo inline with name • Gradient accent • Serif italic title</p>
+                </div>
+
                 <div class="signature-preview" id="modern-preview">
-                    <!-- Modern Signature -->
                     <table cellpadding="0" cellspacing="0" border="0" style="max-width: 500px; background-color: #ffffff; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;">
                         <tr>
                             <td style="padding-bottom: 4px;">
@@ -171,15 +554,24 @@
                         </tr>
                     </table>
                 </div>
-                <button class="copy-button" onclick="copySignature('modern')">Copy Signature</button>
+
+                <button class="copy-button" onclick="copySignature('modern')">
+                    <span class="button-text">
+                        <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy Signature
+                    </span>
+                </button>
             </div>
 
-            <!-- Clean Style -->
             <div class="signature-card">
-                <div class="signature-title">Clean Style</div>
-                <div class="signature-desc">Vertical accent bar • P/E/W labels • Compact</div>
+                <div class="card-header">
+                    <h2 class="card-title">Clean Style</h2>
+                    <p class="card-description">Vertical gradient bar • P/E/W labels • Ultra compact</p>
+                </div>
+
                 <div class="signature-preview" id="clean-preview">
-                    <!-- Clean Signature -->
                     <table cellpadding="0" cellspacing="0" border="0" style="max-width: 450px; background-color: #ffffff; border-collapse: collapse;">
                         <tr>
                             <td style="width: 3px; background: linear-gradient(180deg, #3b5998 0%, #e8b44d 100%); padding: 0;"></td>
@@ -237,15 +629,70 @@
                         </tr>
                     </table>
                 </div>
-                <button class="copy-button" onclick="copySignature('clean')">Copy Signature</button>
+
+                <button class="copy-button" onclick="copySignature('clean')">
+                    <span class="button-text">
+                        <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy Signature
+                    </span>
+                </button>
             </div>
         </div>
 
-        <div class="footer">
-            <p>Click "Copy Signature" to copy the HTML code to your clipboard</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Then paste into your email client's signature settings</p>
-        </div>
+        <section class="instructions">
+            <h2 class="instructions-title">How to Install</h2>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Copy Your Signature</h3>
+                        <p>Click the "Copy Signature" button on your preferred style. The HTML code will be copied to your clipboard.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Open Email Settings</h3>
+                        <p>Navigate to your email client's signature settings. Each platform has a slightly different process.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Paste the Signature</h3>
+                        <p>Paste the copied HTML code into your signature editor. Most modern email clients support HTML signatures.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Test & Save</h3>
+                        <p>Send yourself a test email to ensure everything looks perfect, then save your new signature.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="email-clients">
+                <a href="#gmail" class="client-link">Gmail</a>
+                <a href="#outlook" class="client-link">Outlook</a>
+                <a href="#applemail" class="client-link">Apple Mail</a>
+                <a href="#thunderbird" class="client-link">Thunderbird</a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-divider"></div>
+            <p>Professional email signatures for Dynamics Design & Project Management</p>
+        </footer>
     </div>
+
+    <div class="toast" id="toast">Signature copied to clipboard!</div>
 
     <script>
         async function copySignature(type) {
@@ -254,19 +701,79 @@
             const table = preview.querySelector('table');
             const html = table.outerHTML;
 
+            let success = false;
+
+            // Try modern clipboard API first
             try {
                 await navigator.clipboard.writeText(html);
-                const button = event.target;
-                const originalText = button.textContent;
-                button.textContent = '✓ Copied!';
-                button.style.background = '#4caf50';
+                success = true;
+            } catch (err) {
+                // Fallback for local file:// protocol or older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = html;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+
+                try {
+                    success = document.execCommand('copy');
+                } catch (e) {
+                    console.error('Fallback copy failed:', e);
+                }
+
+                document.body.removeChild(textarea);
+            }
+
+            if (success) {
+                const button = event.target.closest('.copy-button');
+                button.classList.add('copied');
+
+                const buttonText = button.querySelector('.button-text');
+                const checkIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                checkIcon.setAttribute('class', 'button-icon');
+                checkIcon.setAttribute('fill', 'none');
+                checkIcon.setAttribute('stroke', 'currentColor');
+                checkIcon.setAttribute('viewBox', '0 0 24 24');
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('stroke-linecap', 'round');
+                path.setAttribute('stroke-linejoin', 'round');
+                path.setAttribute('stroke-width', '2');
+                path.setAttribute('d', 'M5 13l4 4L19 7');
+                checkIcon.appendChild(path);
+
+                buttonText.textContent = '';
+                buttonText.appendChild(checkIcon);
+                const text = document.createTextNode(' Copied!');
+                buttonText.appendChild(text);
+
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
 
                 setTimeout(() => {
-                    button.textContent = originalText;
-                    button.style.background = '#3b5998';
-                }, 2000);
-            } catch (err) {
-                alert('Failed to copy. Please try again.');
+                    button.classList.remove('copied');
+                    buttonText.textContent = '';
+
+                    const copyIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                    copyIcon.setAttribute('class', 'button-icon');
+                    copyIcon.setAttribute('fill', 'none');
+                    copyIcon.setAttribute('stroke', 'currentColor');
+                    copyIcon.setAttribute('viewBox', '0 0 24 24');
+                    const copyPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    copyPath.setAttribute('stroke-linecap', 'round');
+                    copyPath.setAttribute('stroke-linejoin', 'round');
+                    copyPath.setAttribute('stroke-width', '2');
+                    copyPath.setAttribute('d', 'M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z');
+                    copyIcon.appendChild(copyPath);
+
+                    buttonText.appendChild(copyIcon);
+                    const originalText = document.createTextNode(' Copy Signature');
+                    buttonText.appendChild(originalText);
+
+                    toast.classList.remove('show');
+                }, 2500);
+            } else {
+                alert('Failed to copy signature. Please try:\n\n1. Use a local server (e.g., "python -m http.server")\n2. Or deploy to Vercel where HTTPS is available\n3. Or manually copy from the individual HTML files');
             }
         }
     </script>
