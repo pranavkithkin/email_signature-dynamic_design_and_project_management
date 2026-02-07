@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Signatures - Desiree Canlas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .signatures {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .signature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .signature-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        .signature-desc {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .signature-preview {
+            background: #fafafa;
+            border-radius: 8px;
+            padding: 30px;
+            border: 1px solid #e8e8e8;
+        }
+        .copy-button {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #3b5998;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .copy-button:hover {
+            background: #2d4373;
+        }
+        .copy-button:active {
+            transform: scale(0.98);
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.9;
+        }
+        @media (max-width: 768px) {
+            .signatures {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✨ Email Signatures</h1>
+            <p>Professional signatures for Desiree Canlas</p>
+        </div>
+
+        <div class="signatures">
+            <!-- Modern Style -->
+            <div class="signature-card">
+                <div class="signature-title">Modern Style</div>
+                <div class="signature-desc">Logo inline • Gradient accent • Clean layout</div>
+                <div class="signature-preview" id="modern-preview">
+                    <!-- Modern Signature -->
+                    <table cellpadding="0" cellspacing="0" border="0" style="max-width: 500px; background-color: #ffffff; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;">
+                        <tr>
+                            <td style="padding-bottom: 4px;">
+                                <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                    <tr>
+                                        <td style="vertical-align: middle; padding-right: 12px;">
+                                            <img src="https://dynamics-design.com/_next/static/media/logonew.138eef76.png" alt="DD" style="height: 32px; display: block;" />
+                                        </td>
+                                        <td style="vertical-align: middle;">
+                                            <p style="margin: 0; font-size: 24px; font-weight: 700; color: #0a0a0a; letter-spacing: -0.5px;">
+                                                Desiree Canlas
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-bottom: 16px;">
+                                <p style="margin: 0; font-size: 14px; color: #666666; font-weight: 400; font-style: italic; font-family: Georgia, 'Times New Roman', serif;">
+                                    Project Coordinator/Engineer
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-bottom: 16px;">
+                                <div style="width: 40px; height: 2px; background: linear-gradient(90deg, #3b5998 0%, #e8b44d 100%);"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                    <tr>
+                                        <td style="padding-bottom: 8px;">
+                                            <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                                <tr>
+                                                    <td style="padding-right: 20px; vertical-align: top;">
+                                                        <a href="tel:+971505844381" style="color: #1a1a1a; text-decoration: none; font-size: 13px; font-weight: 500;">+971 505 844 381</a>
+                                                    </td>
+                                                    <td style="vertical-align: top;">
+                                                        <a href="https://www.dynamics-design.com" style="color: #3b5998; text-decoration: none; font-size: 13px; font-weight: 500;">www.dynamics-design.com</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 16px;">
+                                            <a href="mailto:desiree@dynamics-design.com" style="color: #1a1a1a; text-decoration: none; font-size: 13px; font-weight: 500;">desiree@dynamics-design.com</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <button class="copy-button" onclick="copySignature('modern')">Copy Signature</button>
+            </div>
+
+            <!-- Clean Style -->
+            <div class="signature-card">
+                <div class="signature-title">Clean Style</div>
+                <div class="signature-desc">Vertical accent bar • P/E/W labels • Compact</div>
+                <div class="signature-preview" id="clean-preview">
+                    <!-- Clean Signature -->
+                    <table cellpadding="0" cellspacing="0" border="0" style="max-width: 450px; background-color: #ffffff; border-collapse: collapse;">
+                        <tr>
+                            <td style="width: 3px; background: linear-gradient(180deg, #3b5998 0%, #e8b44d 100%); padding: 0;"></td>
+                            <td style="padding-left: 18px;">
+                                <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                    <tr>
+                                        <td style="padding-bottom: 2px;">
+                                            <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                                <tr>
+                                                    <td style="vertical-align: middle; padding-right: 10px;">
+                                                        <img src="https://dynamics-design.com/_next/static/media/logonew.138eef76.png" alt="DD" style="height: 30px; display: block;" />
+                                                    </td>
+                                                    <td style="vertical-align: middle;">
+                                                        <p style="margin: 0; font-size: 22px; font-weight: 600; color: #1a1a1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+                                                            Desiree Canlas
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 14px;">
+                                            <p style="margin: 0; font-size: 13px; color: #888888; font-weight: 400;">
+                                                Project Coordinator/Engineer
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 5px;">
+                                            <p style="margin: 0; font-size: 13px; color: #1a1a1a;">
+                                                <span style="color: #aaaaaa; font-weight: 500; display: inline-block; width: 18px;">P</span>
+                                                <a href="tel:+971505844381" style="color: #1a1a1a; text-decoration: none;">+971 505 844 381</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 5px;">
+                                            <p style="margin: 0; font-size: 13px; color: #1a1a1a;">
+                                                <span style="color: #aaaaaa; font-weight: 500; display: inline-block; width: 18px;">E</span>
+                                                <a href="mailto:desiree@dynamics-design.com" style="color: #1a1a1a; text-decoration: none;">desiree@dynamics-design.com</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p style="margin: 0; font-size: 13px; color: #1a1a1a;">
+                                                <span style="color: #aaaaaa; font-weight: 500; display: inline-block; width: 18px;">W</span>
+                                                <a href="https://www.dynamics-design.com" style="color: #3b5998; text-decoration: none;">www.dynamics-design.com</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <button class="copy-button" onclick="copySignature('clean')">Copy Signature</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Click "Copy Signature" to copy the HTML code to your clipboard</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Then paste into your email client's signature settings</p>
+        </div>
+    </div>
+
+    <script>
+        async function copySignature(type) {
+            const previewId = type + '-preview';
+            const preview = document.getElementById(previewId);
+            const table = preview.querySelector('table');
+            const html = table.outerHTML;
+
+            try {
+                await navigator.clipboard.writeText(html);
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = '✓ Copied!';
+                button.style.background = '#4caf50';
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#3b5998';
+                }, 2000);
+            } catch (err) {
+                alert('Failed to copy. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
